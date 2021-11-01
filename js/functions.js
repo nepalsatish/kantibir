@@ -1,5 +1,5 @@
 //Global var
-var INSPIRO = {},
+var kantibir = {},
     $ = jQuery.noConflict();
 (function ($) {
     // USE STRICT
@@ -83,16 +83,16 @@ var INSPIRO = {},
 
 
 
-    INSPIRO.core = {
+    kantibir.core = {
         functions: function () {
-            INSPIRO.core.pageLoader();
-            INSPIRO.core.responsiveClasses();
-            INSPIRO.core.goToTop();
-            INSPIRO.core.screenSizeControl();
-            INSPIRO.core.rtlStatus();
-            INSPIRO.core.customHeight();
-            INSPIRO.core.equalize();
-            INSPIRO.core.stickyFooter();
+            kantibir.core.pageLoader();
+            kantibir.core.responsiveClasses();
+            kantibir.core.goToTop();
+            kantibir.core.screenSizeControl();
+            kantibir.core.rtlStatus();
+            kantibir.core.customHeight();
+            kantibir.core.equalize();
+            kantibir.core.stickyFooter();
         },
         responsiveClasses: function () {
             if (typeof jRespond === 'undefined') {
@@ -454,18 +454,18 @@ var INSPIRO = {},
             }
         }
     };
-    INSPIRO.header = {
+    kantibir.header = {
         functions: function () {
-            INSPIRO.header.logoStatus();
-            INSPIRO.header.stickyHeader();
-            INSPIRO.header.topBar();
-            INSPIRO.header.topSearch();
-            INSPIRO.header.mainMenu();
-            INSPIRO.header.pageTitle();
-            INSPIRO.header.pageMenu();
-            INSPIRO.header.sidePanel();
-            INSPIRO.header.dotsMenu();
-            INSPIRO.header.onepageMenu();
+            kantibir.header.logoStatus();
+            kantibir.header.stickyHeader();
+            kantibir.header.topBar();
+            kantibir.header.topSearch();
+            kantibir.header.mainMenu();
+            kantibir.header.pageTitle();
+            kantibir.header.pageMenu();
+            kantibir.header.sidePanel();
+            kantibir.header.dotsMenu();
+            kantibir.header.onepageMenu();
         },
         logoStatus: function () {
             if (!$body.is('.device-lg, .device-md, .menu-overlay-active') && $header.is('.dark.header-transparent, .dark.header-colored-transparent, .dark.header-colored')) {
@@ -507,7 +507,7 @@ var INSPIRO = {},
                         }
                     } else {
                         $header.removeClass().addClass($headerCurrentClasses);
-                        INSPIRO.header.logoStatus();
+                        kantibir.header.logoStatus();
                     }
                 }
             }
@@ -609,7 +609,7 @@ var INSPIRO = {},
                     $("#side-panel-trigger").removeClass("toggle-active");
                 });
                 setTimeout(function () {
-                    INSPIRO.elements.gridLayoutRefresh();
+                    kantibir.elements.gridLayoutRefresh();
                 }, 1000);
             }
         },
@@ -622,13 +622,13 @@ var INSPIRO = {},
                 });
 
                 $dotsMenuItems.parents("li").removeClass('current');
-                $dotsMenu.find('a[href="#' + INSPIRO.header.currentSection() + '"]').parent("li").addClass('current');
+                $dotsMenu.find('a[href="#' + kantibir.header.currentSection() + '"]').parent("li").addClass('current');
             }
         },
         onepageMenu: function () {
             if ($mainmenu.hasClass("menu-one-page")) {
                 $mainmenu.find("nav > ul > li > a").parents("li").removeClass('current');
-                $mainmenu.find('nav > ul > li > a[href="#' + INSPIRO.header.currentSection() + '"]').parent("li").addClass('current');
+                $mainmenu.find('nav > ul > li > a[href="#' + kantibir.header.currentSection() + '"]').parent("li").addClass('current');
             }
         },
         currentSection: function () {
@@ -644,14 +644,14 @@ var INSPIRO = {},
             return elemCurrent;
         }
     };
-    INSPIRO.slider = {
+    kantibir.slider = {
         functions: function () {
-            INSPIRO.slider.sliderScreenSizeControl();
-            INSPIRO.slider.inspiroSlider();
-            INSPIRO.slider.carousel();
+            kantibir.slider.sliderScreenSizeControl();
+            kantibir.slider.kantibirSlider();
+            kantibir.slider.carousel();
         },
         sliderScreenSizeControl: function () {
-            if ($(".inspiro-slider").length > 0) {
+            if ($(".kantibir-slider").length > 0) {
                 var headerHeight = $header.height(),
                     topbarHeight = $topbar.height(),
                     windowHeight = $window.height(),
@@ -659,16 +659,16 @@ var INSPIRO = {},
                     sliderFullscreen = $('#slider').hasClass('slider-fullscreen'),
                     screenRatio = $('#slider').hasClass('slider-fullscreen') ? 1 : 1.28,
                     transparentHeader = $header.hasClass("header-transparent") || $header.hasClass("header-light-transparent") || $header.hasClass("header-dark-transparent") || $header.hasClass("header-colored-transparent") || $header.hasClass("header-modern"),
-                    sliderTargetElements = $(".inspiro-slider, .inspiro-slider .owl-stage-outer, .inspiro-slider .owl-stage, .inspiro-slider .slide"),
-                    customHeight = $(".inspiro-slider").data("height"),
-                    responsiveHeightxs = $(".inspiro-slider").data("height-xs") || 300;
+                    sliderTargetElements = $(".kantibir-slider, .kantibir-slider .owl-stage-outer, .kantibir-slider .owl-stage, .kantibir-slider .slide"),
+                    customHeight = $(".kantibir-slider").data("height"),
+                    responsiveHeightxs = $(".kantibir-slider").data("height-xs") || 300;
                 if ($body.hasClass('device-lg') || $body.hasClass('device-md') || $body.hasClass('device-sm')) {
                     if (transparentHeader) {
                         if (sliderFullscreen) {
                             sliderTargetElements.css('height', windowHeight + 'px');
                         } else {
                             if (!$header.hasClass(".header-transparent")) {
-                                $(".inspiro-slider .slide").css('padding-top', screenHeightExtra + 'px');
+                                $(".kantibir-slider .slide").css('padding-top', screenHeightExtra + 'px');
 
                             }
                             if (!customHeight) {
@@ -692,13 +692,13 @@ var INSPIRO = {},
                 }
             }
         },
-        inspiroSlider: function () {
+        kantibirSlider: function () {
             if (!$().owlCarousel) {
-                console.log('inspiroSlider: owlCarousel plugin is missing.');
+                console.log('kantibirSlider: owlCarousel plugin is missing.');
                 return true;
             }
-            if ($(".inspiro-slider").length > 0) {
-                $(".inspiro-slider").each(function () {
+            if ($(".kantibir-slider").length > 0) {
+                $(".kantibir-slider").each(function () {
                     var elem = $(this),
                         carouselNav = elem.attr('data-arrows'),
                         carouselDots = elem.attr('data-dots') || true,
@@ -753,7 +753,7 @@ var INSPIRO = {},
                                 video: carouselVideo,
                                 animateIn: carouseAnimateIn,
                                 animateOut: carouseAnimateOut,
-                                rtl: INSPIRO.core.rtlStatus(),
+                                rtl: kantibir.core.rtlStatus(),
                                 items: 1,
                                 callbacks: true,
                                 onInitialize: function (event) {
@@ -890,7 +890,7 @@ var INSPIRO = {},
                 video: carouselVideo,
                 animateIn: carouseAnimateIn,
                 animateOut: carouseAnimateOut,
-                rtl: INSPIRO.core.rtlStatus(),
+                rtl: kantibir.core.rtlStatus(),
                 onInitialize: function (event) {
                     carousel.addClass("carousel-loaded owl-carousel");
                 },
@@ -979,7 +979,7 @@ var INSPIRO = {},
                             video: carouselVideo,
                             animateIn: carouseAnimateIn,
                             animateOut: carouseAnimateOut,
-                            rtl: INSPIRO.core.rtlStatus(),
+                            rtl: kantibir.core.rtlStatus(),
                             onInitialize: function (event) {
                                 // setTimeout(function () {
                                 elem.addClass("carousel-loaded owl-carousel");
@@ -1069,29 +1069,28 @@ var INSPIRO = {},
 
 
     };
-    INSPIRO.elements = {
+    kantibir.elements = {
         functions: function () {
-            INSPIRO.elements.naTo();
-            INSPIRO.elements.textRotator();
-            INSPIRO.elements.buttons();
-            INSPIRO.elements.accordion();
-            INSPIRO.elements.tabs();
-            INSPIRO.elements.animations();
-            INSPIRO.elements.parallax();
-            INSPIRO.elements.responsiveVideos();
-            INSPIRO.elements.counters();
-            INSPIRO.elements.countdownTimer();
-            INSPIRO.elements.progressBar();
-            INSPIRO.elements.pieChart();
-            INSPIRO.elements.maps();
-            INSPIRO.elements.gridLayout();
-            INSPIRO.elements.tooltip();
-            INSPIRO.elements.popover();
-            INSPIRO.elements.lightBoxInspiro();
-            INSPIRO.elements.youTubeBgPlayer();
-            INSPIRO.elements.modal();
-            INSPIRO.elements.pinOnScroll();
-            INSPIRO.elements.other();
+            kantibir.elements.naTo();
+            kantibir.elements.textRotator();
+            kantibir.elements.buttons();
+            kantibir.elements.accordion();
+            kantibir.elements.tabs();
+            kantibir.elements.animations();
+            kantibir.elements.parallax();
+            kantibir.elements.counters();
+            kantibir.elements.countdownTimer();
+            kantibir.elements.progressBar();
+            kantibir.elements.pieChart();
+            // kantibir.elements.maps();
+            kantibir.elements.gridLayout();
+            kantibir.elements.tooltip();
+            kantibir.elements.popover();
+            kantibir.elements.lightBoxkantibir();
+            kantibir.elements.youTubeBgPlayer();
+            kantibir.elements.modal();
+            kantibir.elements.pinOnScroll();
+            kantibir.elements.other();
         },
 
         other: function () {
@@ -1110,7 +1109,7 @@ var INSPIRO = {},
                                 elem.toggleClass(toggleItemClass);
                             }
                         }
-                        INSPIRO.header.logoStatus();
+                        kantibir.header.logoStatus();
                         elem.toggleClass("toggle-active");
                         return false;
                     });
@@ -1276,13 +1275,6 @@ var INSPIRO = {},
                 });
             }
         },
-        responsiveVideos: function () {
-            if (!$().fitVids) {
-                console.log('responsiveVideos: fitVids plugin is missing.');
-                return true;
-            }
-            $("section, .content, .post-content, .video-js, .post-video, .video-wrap, .ajax-quick-view,#slider:not(.revslider-wrap)").fitVids();
-        },
         counters: function () {
             if (!$().countTo) {
                 console.log('counters: countTo plugin is missing.');
@@ -1384,52 +1376,6 @@ var INSPIRO = {},
                 });
             }
         },
-        maps: function () {
-            if (!$().gMap) {
-                console.log('maps: gMap plugin is missing.');
-                return true;
-            }
-            if ($map.length > 0) {
-                $map.each(function () {
-                    var $elem = $(this),
-                        mapAddress = $elem.attr('data-map-address') ? $elem.attr('data-map-address') : "Melbourne, Australia",
-                        mapType = $elem.attr('data-map-type') ? $elem.attr('data-map-type') : "ROADMAP",
-                        mapZoom = $elem.attr('data-map-zoom') ? $elem.attr('data-map-zoom') : "14",
-                        mapIcon = $elem.attr('data-map-icon') ? $elem.attr('data-map-icon') : "images/markers/marker2.png";
-                    var markers = [{
-                        address: mapAddress,
-                        html: mapAddress,
-                        icon: {
-                            image: mapIcon,
-                            iconsize: [40, 63],
-                            iconanchor: [18, 60],
-                        },
-                    }];
-                    $elem.gMap({
-                        address: mapAddress,
-                        maptype: mapType,
-                        markers: markers,
-                        zoom: Number(mapZoom),
-                        doubleclickzoom: true,
-                        controls: {
-                            panControl: true,
-                            zoomControl: true,
-                            mapTypeControl: false,
-                            scaleControl: true,
-                            streetViewControl: false,
-                            overviewMapControl: true
-                        },
-                        styles: [{
-                            featureType: "poi",
-                            elementType: "labels",
-                            stylers: [{
-                                visibility: "off"
-                        }]
-                    }]
-                    });
-                });
-            }
-        },
         gridLayout: function () {
             if (!$().isotope) {
                 console.log('gridLayout: isotope plugin is missing.');
@@ -1491,7 +1437,7 @@ var INSPIRO = {},
 
                     /*Infinity Scroll*/
                     if (elem.next().hasClass("infinite-scroll")) {
-                        INSPIRO.elements.gridLayoutInfinite(elem, gridItem, gridMargin);
+                        kantibir.elements.gridLayoutInfinite(elem, gridItem, gridMargin);
                     }
 
 
@@ -1572,9 +1518,9 @@ var INSPIRO = {},
                         elem.css("margin", "0 -" + gridMargin + "px -" + gridMargin + "px 0");
                         elem.find('.' + gridItem).css("padding", "0 " + gridMargin + "px " + gridMargin + "px 0");
 
-                        INSPIRO.slider.carouselAjax();
+                        kantibir.slider.carouselAjax();
                         elem.isotope('appended', newElements);
-                        INSPIRO.elements.gridLayoutRefresh();
+                        kantibir.elements.gridLayoutRefresh();
                     });
             });
 
@@ -1615,9 +1561,9 @@ var INSPIRO = {},
                 });
             }
         },
-        lightBoxInspiro: function () {
+        lightBoxkantibir: function () {
             if (!$().magnificPopup) {
-                console.log('lightBoxInspiro: magnificPopup plugin is missing.');
+                console.log('lightBoxkantibir: magnificPopup plugin is missing.');
                 return true;
             }
             if ($lightbox_image.length > 0) {
@@ -1676,10 +1622,10 @@ var INSPIRO = {},
                         removalDelay: 500, //delay removal by X to allow out-animation
                         callbacks: {
                             ajaxContentAdded: function (mfpResponse) {
-                                INSPIRO.slider.carouselAjax();
-                                INSPIRO.elements.responsiveVideos();
-                                // INSPIRO.elements.accordion();
-                                INSPIRO.elements.buttons();
+                                kantibir.slider.carouselAjax();
+                                kantibir.elements.responsiveVideos();
+                                // kantibir.elements.accordion();
+                                kantibir.elements.buttons();
                             }
                         }
                     });
@@ -1771,7 +1717,7 @@ var INSPIRO = {},
         },
         modal: function () {
             if (!$().magnificPopup) {
-                console.log('lightBoxInspiro: magnificPopup plugin is missing.');
+                console.log('lightBoxkantibir: magnificPopup plugin is missing.');
                 return true;
             }
             var $modal = $(".modal"),
@@ -1910,48 +1856,9 @@ var INSPIRO = {},
 
         }
     };
-    INSPIRO.widgets = {
+    kantibir.widgets = {
         functions: function () {
-            INSPIRO.widgets.twitter();
-            INSPIRO.widgets.flickr();
-            INSPIRO.widgets.contactForm();
-            INSPIRO.widgets.subscribeForm();
-        },
-        twitter: function () {
-
-            if (!$().twittie) {
-                console.log('twitter: twittie plugin is missing.');
-                return true;
-            }
-
-            setTimeout(function () {
-                if ($widget_twitter.length > 0) {
-                    $widget_twitter.each(function () {
-                        var $elem = $(this),
-                            twitterUsername = $elem.attr('data-username') || "ardianmusliu",
-                            twitterLimit = $elem.attr('data-limit') || 2,
-                            twitterDateFormat = $elem.attr('data-format') || '%b/%d/%Y',
-                            twitterLoadingText = $elem.attr('data-loading-text') || 'Loading...',
-                            twitterApiPAth = $elem.attr('data-loader') || "include/twitter/tweet.php",
-                            twitterAvatar = $elem.attr('data-avatar') || false;
-                        if (twitterAvatar == 'true') {
-                            twitterAvatar = "{{avatar}}";
-                        } else {
-                            twitterAvatar = "";
-                        }
-                        $elem.append('<div id="twitter-cnt"></div>')
-
-                        $elem.find('#twitter-cnt').twittie({
-                            'username': twitterUsername,
-                            'count': twitterLimit,
-                            'dateFormat': twitterDateFormat,
-                            'template': twitterAvatar + '{{tweet}}<small>{{date}}</small>',
-                            'apiPath': twitterApiPAth,
-                            'loadingText': twitterLoadingText
-                        });
-                    });
-                }
-            }, 2000);
+            kantibir.widgets.flickr();
         },
         flickr: function () {
             if (!$().jflickrfeed) {
@@ -1981,120 +1888,11 @@ var INSPIRO = {},
                 });
             }
         },
-        contactForm: function () {
-            if (!$().validate) {
-                console.log('contactForm: validate plugin is missing.');
-                return true;
-            }
-            if (!$().ajaxSubmit) {
-                console.log('contactForm: ajaxSubmit plugin is missing.');
-                return true;
-            }
-            if (!$.notify) {
-                console.log('contactForm: notify plugin is missing.');
-                return true;
-            }
-            if ($contactForm.length > 0) {
-
-                $contactForm.each(function () {
-                    var elem = $(this),
-                        elemSuccessMessage = elem.attr('data-success-message') || "We have <strong>successfully</strong> received your Message and will get Back to you as soon as possible.";
-
-                    elem.validate({
-                        submitHandler: function (form) {
-                            var button = $(form).find('button#form-submit'),
-                                buttonText = button.html();
-
-                            button.html('<i class="fa fa-refresh fa-spin"></i> Sending...');
-
-                            $(form).ajaxSubmit({
-                                success: function (text) {
-                                    if (text.response == 'success') {
-                                        $.notify({
-                                            message: elemSuccessMessage
-                                        }, {
-                                            type: 'success'
-                                        });
-                                        if ($(form).find('.g-recaptcha').children('div').length > 0) {
-                                            grecaptcha.reset();
-                                        }
-                                        $(form)[0].reset();
-                                        button.html(buttonText);
-
-                                    } else {
-                                        $.notify({
-                                            message: elem.attr('data-error-message') || text.message
-                                        }, {
-                                            type: 'danger'
-                                        });
-                                        setTimeout(function () {
-                                            button.html(buttonText);
-                                        }, 1000);
-                                    }
-                                }
-                            });
-                        }
-                    });
-                });
-            }
-        },
-        subscribeForm: function () {
-            if (!$().validate) {
-                console.log('subscribeForm: validate plugin is missing.');
-                return true;
-            }
-            if (!$().ajaxSubmit) {
-                console.log('subscribeForm: ajaxSubmit plugin is missing.');
-                return true;
-            }
-            if (!$.notify) {
-                console.log('subscribeForm: notify plugin is missing.');
-                return true;
-            }
-            if ($subscribeForm.length > 0) {
-
-                $subscribeForm.each(function () {
-                    var elem = $(this),
-                        elemSuccessMessage = elem.attr('success-message') || "You have successfully subscribed to our mailing list.";
-
-                    elem.validate({
-                        submitHandler: function (form) {
-                            var addonIcon = elem.find('.input-group-addon'),
-                                addonIconText = addonIcon.html();
-
-                            addonIcon.html('<i class="fa fa-refresh fa-spin"></i>');
-
-                            $(form).ajaxSubmit({
-                                dataType: 'json',
-                                success: function (text) {
-                                    if (text.response == 'success') {
-                                        $.notify({
-                                            message: elemSuccessMessage
-                                        }, {
-                                            type: 'success'
-                                        });
-                                        $(form)[0].reset();
-                                        addonIcon.html(addonIconText);
-
-                                    } else {
-                                        $.notify({
-                                            message: text.message
-                                        }, {
-                                            type: 'warning'
-                                        });
-                                        addonIcon.html(addonIconText);
-                                    }
-                                }
-                            });
-                        }
-                    });
-                });
-            }
-        },
+       
     };
     
     
-    	INSPIRO.isMobile = {
+    	kantibir.isMobile = {
 		Android: function() {
 			return navigator.userAgent.match(/Android/i);
 		},
@@ -2111,63 +1909,63 @@ var INSPIRO = {},
 			return navigator.userAgent.match(/IEMobile/i);
 		},
 		any: function() {
-			return (INSPIRO.isMobile.Android() || INSPIRO.isMobile.BlackBerry() || INSPIRO.isMobile.iOS() || INSPIRO.isMobile.Opera() || INSPIRO.isMobile.Windows());
+			return (kantibir.isMobile.Android() || kantibir.isMobile.BlackBerry() || kantibir.isMobile.iOS() || kantibir.isMobile.Opera() || kantibir.isMobile.Windows());
 		}
 	};
 
     //Document resize functions
-    INSPIRO.documentOnResize = {
+    kantibir.documentOnResize = {
         functions: function () {
-            INSPIRO.header.logoStatus();
-            INSPIRO.header.stickyHeader();
-            INSPIRO.core.screenSizeControl();
-            INSPIRO.slider.sliderScreenSizeControl();
-            // INSPIRO.header.mainMenu();
-            INSPIRO.core.customHeight();
-            INSPIRO.core.stickyFooter();
+            kantibir.header.logoStatus();
+            kantibir.header.stickyHeader();
+            kantibir.core.screenSizeControl();
+            kantibir.slider.sliderScreenSizeControl();
+            // kantibir.header.mainMenu();
+            kantibir.core.customHeight();
+            kantibir.core.stickyFooter();
         },
     };
-    $window.on('resize', INSPIRO.documentOnResize.functions);
+    $window.on('resize', kantibir.documentOnResize.functions);
 
     //Document ready functions
-    INSPIRO.documentReady = {
+    kantibir.documentReady = {
         functions: function () {
-            INSPIRO.core.pageLoader();
-            INSPIRO.slider.sliderScreenSizeControl();
-            INSPIRO.core.functions();
-            INSPIRO.header.functions();
-            INSPIRO.slider.functions();
-            INSPIRO.elements.functions();
-            INSPIRO.widgets.functions();
+            kantibir.core.pageLoader();
+            kantibir.slider.sliderScreenSizeControl();
+            kantibir.core.functions();
+            kantibir.header.functions();
+            kantibir.slider.functions();
+            kantibir.elements.functions();
+            kantibir.widgets.functions();
         },
     };
-    $(document).ready(INSPIRO.documentReady.functions);
+    $(document).ready(kantibir.documentReady.functions);
 
     //Document on load functions
-    INSPIRO.documentOnLoad = {
+    kantibir.documentOnLoad = {
         functions: function () {
 
 
 
         },
     };
-    $(window).on('load', INSPIRO.documentOnLoad.functions);
+    $(window).on('load', kantibir.documentOnLoad.functions);
 
     //Document Scroll functions
-    INSPIRO.documentScroll = {
+    kantibir.documentScroll = {
         functions: function () {
-            INSPIRO.header.logoStatus();
-            INSPIRO.header.stickyHeader();
-            INSPIRO.core.goToTop();
-            INSPIRO.header.dotsMenu();
-            INSPIRO.header.onepageMenu();
+            kantibir.header.logoStatus();
+            kantibir.header.stickyHeader();
+            kantibir.core.goToTop();
+            kantibir.header.dotsMenu();
+            kantibir.header.onepageMenu();
         },
     };
-    $window.on('scroll', INSPIRO.documentScroll.functions);
+    $window.on('scroll', kantibir.documentScroll.functions);
 
 
 
-    INSPIRO.lightBoxInspiro = function () {
+    kantibir.lightBoxkantibir = function () {
 
         if ($lightbox_image.length > 0) {
             $lightbox_image.magnificPopup({
@@ -2225,10 +2023,10 @@ var INSPIRO = {},
                     removalDelay: 500, //delay removal by X to allow out-animation
                     callbacks: {
                         ajaxContentAdded: function (mfpResponse) {
-                            INSPIRO.lightBoxInspiro();
-                            INSPIRO.slider.carouselAjax();
-                            INSPIRO.elements.responsiveVideos();
-                            INSPIRO.elements.accordion();
+                            kantibir.lightBoxkantibir();
+                            kantibir.slider.carouselAjax();
+                            kantibir.elements.responsiveVideos();
+                            kantibir.elements.accordion();
                         }
                     }
                 });
